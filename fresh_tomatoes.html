@@ -1,0 +1,143 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Mongol Karaoke</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+           
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+         
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            width: 150%;
+            position: relative;
+            width: 150%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+            /*I have modified the screen size with javascript */
+            $('.modal-dialog').css({ width: $(window).width()*.8 + 'px', height: $(window).height*.8 + 'px' });
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+  
+       
+     
+     
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body width="95%">
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Mongol Karaoke</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="VHAWgAT-QRo" data-toggle="modal" data-target="#trailer">
+    <img src="http://i.ytimg.com/vi/XpmQa9-OXpQ/maxresdefault.jpg" width="220" height="342">
+    <h2>Javkhlan Mongoljingoo</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="kBrt8yVay0E" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.miniih.com/miniiblog/misia/files/s_javkhlan-middle.jpg" width="220" height="342">
+    <h2>Nasan bagiin dursamj</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="BVj1SdxzdCo" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.infomongolia.com/images/stories/news/news/2012/02_february/02/bx_singer.gif" width="220" height="342">
+    <h2>Sorrow</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="4wGiBzv8B0U" data-toggle="modal" data-target="#trailer">
+    <img src="http://stat.gogo.mn/blog/9/77689/mglinstrumental/url.jpg" width="220" height="342">
+    <h2>My love</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="OIjfMLOEGGM" data-toggle="modal" data-target="#trailer">
+    <img src="http://i.ytimg.com/vi/_n_N69oRb7k/maxresdefault.jpg" width="220" height="342">
+    <h2>Bi Mongol Er Hun</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="8QZH451A80o" data-toggle="modal" data-target="#trailer">
+    <img src="http://i.ytimg.com/vi/s6ct_kZba74/maxresdefault.jpg" width="220" height="342">
+    <h2>Ekhiin Duu</h2>
+</div>
+
+    </div>
+  </body>
+</html>
