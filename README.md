@@ -1,4 +1,4 @@
-# Project1-movietrailer
+Project1-movietrailer. 8/18/2015
 
 The main thing to notice is that I changed movie trailers to karaoke songs, which I have modified to this later, I will continue to keep working on the project, at http://www.ochiguru.com
 
